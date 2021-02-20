@@ -92,6 +92,7 @@ namespace TaglibSharp.Tests.FileFormats
 			Assert.AreEqual (6, file.Tag.Track);
 			//Assert.AreEqual(7, file.Tag.TrackCount);
 			Assert.AreEqual (1234, file.Tag.Year);
+			Assert.AreEqual ("-1.43 db", file.Tag.ReplayGainTrackGain);
 		}
 
 		[Test]
