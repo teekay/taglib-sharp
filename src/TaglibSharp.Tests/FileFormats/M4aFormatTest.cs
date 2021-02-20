@@ -110,5 +110,16 @@ namespace TaglibSharp.Tests.FileFormats
 		{
 			StandardTests.TestCorruptionResistance (TestPath.Samples + "corrupt/a.m4a");
 		}
+
+		[Test]
+		public void TestM4aComment ()
+		{
+			var tagFile = TagLib.File.Create (
+				new TagLib.File.LocalFileAbstraction (
+					@"C:\Users\Tomas\Music\Library\Carlos Di Sarli\26DISARLI1943M4A\m4a\Tristeza marina 77215_AC.m4a"));
+			var tag = tagFile.GetTag (TagLib.TagTypes.Apple);
+			var comment = tag.Comment;
+			Assert.AreEqual (@"B#; great opener; positive, optimistic yet lyrical", comment);
+		}
 	}
 }
